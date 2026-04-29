@@ -1,0 +1,126 @@
+/* =============================================
+   Estilos das Telas do Jogador
+   ============================================= */
+
+.player-page {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: var(--space-lg);
+}
+
+/* ── Join Game ── */
+.join-page { background: linear-gradient(160deg, #1a1040 0%, var(--background) 50%, #0d1f3c 100%); }
+
+.join-content { max-width: 420px; width: 100%; text-align: center; display: flex; flex-direction: column; gap: var(--space-xl); }
+.join-logo { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); }
+.logo-icon-large { font-size: 3.5rem; }
+.join-title { font-size: 2.5rem; font-weight: 900; color: var(--primary); letter-spacing: -0.03em; }
+
+.join-form { padding: var(--space-xl); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-md); }
+.join-field { text-align: left; }
+.input-large { font-size: 1.15rem; padding: 1rem 1.25rem; text-align: center; }
+.join-error { color: var(--error); font-size: 0.9rem; font-weight: 500; }
+.join-btn { width: 100%; font-size: 1.15rem; padding: 1rem; }
+.join-hint { font-size: 0.85rem; }
+
+/* ── Waiting Room ── */
+.waiting-page { background: radial-gradient(ellipse at center, #1a1040 0%, var(--background) 70%); }
+.waiting-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-lg); }
+.waiting-icon { font-size: 4rem; }
+.waiting-title { font-size: 2rem; font-weight: 800; }
+.waiting-code { font-size: 1.2rem; color: var(--on-surface-variant); }
+.waiting-code strong { color: var(--primary); font-size: 1.5rem; letter-spacing: 0.15em; }
+
+.waiting-animation { padding: var(--space-lg); }
+.waiting-pulse {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(189,157,255,0.2); animation: waitPulse 2s ease-in-out infinite;
+}
+@keyframes waitPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 0.1; }
+}
+
+/* ── Player Game ── */
+.game-page { flex-direction: column; padding: var(--space-md); gap: var(--space-md); }
+
+.player-game-header {
+  display: flex; justify-content: space-between; align-items: center;
+  width: 100%; padding: var(--space-sm) 0;
+}
+.player-question-counter { font-weight: 600; color: var(--on-surface-variant); font-size: 0.9rem; }
+.player-timer { font-size: 1.5rem; font-weight: 900; transition: color var(--transition-fast); }
+
+.player-question-text {
+  font-size: 1.2rem; font-weight: 700; text-align: center;
+  padding: var(--space-sm) 0; line-height: 1.4; max-width: 600px;
+}
+
+.player-answered-badge {
+  padding: 0.5rem 1.5rem; border-radius: var(--radius-full);
+  background: rgba(38,137,12,0.2); color: var(--answer-3); font-weight: 700;
+}
+
+.player-question-image {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.player-question-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.player-options-grid {
+  flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);
+  width: 100%; max-width: 600px; align-content: center;
+}
+
+.player-options-grid .answer-btn {
+  min-height: 120px; font-size: 2rem;
+}
+
+.player-options-grid .answer-shape { font-size: 3rem; }
+
+/* ── Feedback ── */
+.feedback-page { flex-direction: column; }
+.feedback-correct { background: linear-gradient(180deg, rgba(38,137,12,0.2), var(--background)); }
+.feedback-wrong { background: linear-gradient(180deg, rgba(226,27,60,0.2), var(--background)); }
+.feedback-timeout { background: linear-gradient(180deg, rgba(216,158,0,0.2), var(--background)); }
+
+.feedback-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-lg); }
+.feedback-icon-large { font-size: 5rem; }
+.feedback-title { font-size: 2.5rem; font-weight: 900; }
+.feedback-title-correct { color: var(--answer-3); }
+.feedback-title-wrong { color: var(--error); }
+.feedback-title-timeout { color: var(--answer-2); }
+
+.feedback-points { font-size: 2rem; font-weight: 800; color: var(--on-surface); }
+.feedback-total {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);
+  padding: var(--space-md); border-radius: var(--radius-lg);
+  background: var(--surface-container-high);
+}
+.feedback-total-value { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+.feedback-position { font-size: 1.3rem; color: var(--on-surface-variant); }
+.feedback-position strong { color: var(--primary); font-size: 1.5rem; }
+.feedback-total-points { font-size: 2rem; font-weight: 900; color: var(--primary); }
+
+/* ── Responsive Desktop para Player ── */
+@media (min-width: 769px) {
+  .player-question-text { font-size: 1.5rem; }
+  .player-options-grid { max-width: 700px; }
+  .player-options-grid .answer-btn { min-height: 150px; }
+  .feedback-icon-large { font-size: 6rem; }
+}
+
+@media (max-width: 480px) {
+  .player-options-grid { grid-template-columns: 1fr; }
+  .player-options-grid .answer-btn { min-height: 90px; font-size: 1.5rem; }
+  .join-title { font-size: 2rem; }
+  .lobby-code { font-size: 2rem; }
+}

@@ -1,0 +1,435 @@
+/* =============================================
+   Estilos dos Componentes Reutilizáveis
+   ============================================= */
+
+/* ── Timer ── */
+.timer-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 12px rgba(189, 157, 255, 0.3));
+}
+
+.timer-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  z-index: 1;
+}
+
+/* ── Buttons ── */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dim) 100%);
+  color: var(--on-primary);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(137, 79, 247, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius-lg);
+}
+
+.btn-ghost {
+  background: rgba(189, 157, 255, 0.1);
+  color: var(--primary);
+}
+
+.btn-ghost:hover {
+  background: rgba(189, 157, 255, 0.2);
+}
+
+.btn-danger-ghost {
+  background: rgba(255, 110, 132, 0.1);
+  color: var(--error);
+}
+
+.btn-danger-ghost:hover {
+  background: rgba(255, 110, 132, 0.2);
+}
+
+.btn-secondary {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-container-highest);
+}
+
+/* ── Quiz Card ── */
+.quiz-card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: all var(--transition-normal);
+}
+
+.quiz-card:hover {
+  background: rgba(35, 35, 63, 0.7);
+  box-shadow: 0 0 24px rgba(189, 157, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.quiz-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.quiz-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quiz-card-meta {
+  display: flex;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+}
+
+.quiz-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ── Player Avatar ── */
+.player-avatar {
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--surface-container-high);
+}
+
+.player-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--on-surface);
+  background: linear-gradient(135deg, var(--primary-dim), var(--secondary-container));
+}
+
+/* ── Answer Button ── */
+.answer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-lg);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all var(--transition-fast);
+  min-height: 80px;
+  width: 100%;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+}
+
+.answer-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 rgba(0,0,0,0.3);
+}
+
+.answer-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.answer-btn-selected {
+  outline: 4px solid white;
+  outline-offset: -4px;
+  transform: scale(0.97);
+}
+
+.answer-btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.answer-shape {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.answer-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.answer-image {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  background: rgba(0,0,0,0.2);
+}
+
+.answer-text {
+  width: 100%;
+  text-align: center;
+}
+
+/* ── Bar Chart ── */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-lg);
+  height: 300px;
+  padding: var(--space-lg) 0;
+}
+
+.bar-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+  max-width: 120px;
+  height: 100%;
+}
+
+.bar-count {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--on-surface);
+}
+
+.bar-track {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}
+
+.bar-fill {
+  width: 100%;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  animation: barGrow 0.6s ease forwards;
+  min-height: 8px;
+}
+
+.bar-correct {
+  box-shadow: 0 0 20px rgba(38, 137, 12, 0.5);
+}
+
+.bar-wrong {
+  opacity: 0.6;
+}
+
+.bar-label {
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.bar-check {
+  color: var(--answer-3);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+@keyframes barGrow {
+  from { height: 0; }
+}
+
+/* ── Podium ── */
+.podium-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+}
+
+.podium-stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.podium-position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.podium-nickname {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--on-surface);
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.podium-points {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--on-surface-variant);
+}
+
+.podium-bar {
+  width: 120px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--space-md);
+}
+
+.podium-place {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.podium-rest {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.podium-rest-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.podium-rest-position {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--on-surface-variant);
+  min-width: 2.5rem;
+}
+
+.podium-rest-name {
+  flex: 1;
+  font-weight: 600;
+}
+
+.podium-rest-points {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ── Input Fields ── */
+.input-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--surface-container-lowest);
+  color: var(--on-surface);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+  box-shadow: inset 0 0 0 1px rgba(70, 70, 92, 0.15);
+}
+
+.input-field:focus {
+  box-shadow: inset 0 0 0 2px var(--primary);
+  background: var(--surface-container-low);
+}
+
+.input-field::placeholder {
+  color: var(--outline);
+}
+
+.input-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Select ── */
+.select-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--surface-container-lowest);
+  color: var(--on-surface);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+  box-shadow: inset 0 0 0 1px rgba(70, 70, 92, 0.15);
+  appearance: none;
+  cursor: pointer;
+}
+
+.select-field:focus {
+  box-shadow: inset 0 0 0 2px var(--primary);
+}

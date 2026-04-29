@@ -1,0 +1,214 @@
+/* =============================================
+   QuizPlay — Design System (The Lucid Arcade)
+   Tokens gerados pelo Google Stitch
+   ============================================= */
+
+:root {
+  /* ── Cores de Superfície ── */
+  --background: #0c0c1f;
+  --surface: #0c0c1f;
+  --surface-container-lowest: #000000;
+  --surface-container-low: #111127;
+  --surface-container: #17172f;
+  --surface-container-high: #1d1d37;
+  --surface-container-highest: #23233f;
+  --surface-variant: #23233f;
+  --surface-bright: #292948;
+
+  /* ── Cores Primárias ── */
+  --primary: #bd9dff;
+  --primary-dim: #894ff7;
+  --primary-container: #b18cff;
+  --on-primary: #3c008a;
+
+  /* ── Cores Secundárias ── */
+  --secondary: #cb93fe;
+  --secondary-container: #602b90;
+  --on-secondary: #440373;
+
+  /* ── Cores Terciárias ── */
+  --tertiary: #ff93b0;
+  --tertiary-container: #fa7ea2;
+
+  /* ── Cores de Texto ── */
+  --on-surface: #e5e3ff;
+  --on-surface-variant: #aaa8c3;
+  --on-background: #e5e3ff;
+
+  /* ── Cores de Contorno ── */
+  --outline: #74738b;
+  --outline-variant: #46465c;
+
+  /* ── Cores de Erro ── */
+  --error: #ff6e84;
+  --on-error: #490013;
+
+  /* ── Cores das Alternativas ── */
+  --answer-0: #E21B3C; /* Vermelho — Triângulo */
+  --answer-1: #1368CE; /* Azul — Losango */
+  --answer-2: #D89E00; /* Amarelo — Círculo */
+  --answer-3: #26890C; /* Verde — Quadrado */
+  --answer-4: #B8178C; /* Rosa — Estrela */
+  --answer-5: #FF6B35; /* Laranja — Hexágono */
+
+  /* ── Tipografia ── */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 900;
+  --font-headline: 700;
+  --font-title: 600;
+  --font-body: 400;
+
+  /* ── Espaçamento ── */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* ── Bordas ── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Transições ── */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-body);
+  background-color: var(--background);
+  color: var(--on-surface);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family);
+  border: none;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-family);
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Utilitários ── */
+.glass {
+  background: rgba(35, 35, 63, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.glass-light {
+  background: rgba(35, 35, 63, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.ghost-border {
+  box-shadow: inset 0 0 0 1px rgba(70, 70, 92, 0.15);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dim) 100%);
+}
+
+.text-secondary {
+  color: var(--on-surface-variant);
+}
+
+/* ── Animações Globais ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(189, 157, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(189, 157, 255, 0.6); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* ── Scrollbar Customizada ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container-lowest);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
+}
