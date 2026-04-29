@@ -15,6 +15,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - caddy_net
 
   backend:
     build: ./backend
@@ -33,6 +35,8 @@ services:
     volumes:
       - ./uploads:/app/uploads
       - ./backend/src:/app/src
+    networks:
+      - caddy_net
 
   frontend:
     build: ./frontend
@@ -47,6 +51,12 @@ services:
       - ./frontend/index.html:/app/index.html
     depends_on:
       - backend
+    networks:
+      - caddy_net
 
 volumes:
   mysql_data:
+  
+networks:
+  caddy_net:
+    external: true
