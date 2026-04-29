@@ -44,8 +44,8 @@ services:
     ports:
       - "5173:5173"
     environment:
-      VITE_API_URL: https://quiz.api.commitjr.com:3001
-      VITE_WS_URL: https://quiz.api.commitjr.com:3001
+      VITE_API_URL: https://quiz.api.commitjr.com
+      VITE_WS_URL: https://quiz.api.commitjr.com
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/index.html:/app/index.html
@@ -56,7 +56,7 @@ services:
 
 volumes:
   mysql_data:
-  
+
 networks:
   caddy_net:
     external: true
